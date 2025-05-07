@@ -92,7 +92,7 @@ with open(FILENAME) as f:
 
 Backend
 ```C++
-#include <torch/csrc/nativert/ModelRunner.h>
+#include <torch/nativert/ModelRunner.h>
 
 using torch::nativert::BaseRuntimeConfig;
 using torch::nativert::ExecutorType;
@@ -116,13 +116,13 @@ int main() {
 ```
 
 Therefore here is the list of types we expose as TORCH_API:
-- ModelRunner (and its base class ModelRunnerBase) (from torch/csrc/nativert/ModelRunner.h)
+- ModelRunner (and its base class ModelRunnerBase) (from torch/nativert/ModelRunner.h)
   - The main execution engine and entry point for exported graph.
-- BaseRuntimeConfig (from torch/csrc/nativert/executor/ModelRunnerBase.h)
+- BaseRuntimeConfig (from torch/nativert/executor/ModelRunnerBase.h)
   - Centralized type to store configs/knobs.
-- ExecutorType (from torch/csrc/nativert/executor/ModelRunnerBase.h)
+- ExecutorType (from torch/nativert/executor/ModelRunnerBase.h)
   - The delegate executor type to be used for execution. Currently supports: 1. Plain interpreter (default) 2. AOTInductor 3. MTIA delagate.
-- Placement (from torch/csrc/nativert/executor/Placement.h)
+- Placement (from torch/nativert/executor/Placement.h)
   - Typically not used. Sometimes useful for adjusting the device of weights during model loading.
 
 ### Code layout
